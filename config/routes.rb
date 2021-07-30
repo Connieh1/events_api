@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :events, only: [:index, :create]
-
-
-  root "application#index"
+  
+  namespace :api do
+    namespace :v1 do
+      resources :events, only: [:index, :create]
+    end
+  end
+  # root "application#index"
 end
