@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+
   def index
     render json: Event.all
   end
@@ -6,7 +7,7 @@ class EventsController < ApplicationController
   def create
     event = Event.new(event_params)
     if event.save
-      render json: @event, status: :accepted
+      render json: event, status: :accepted
     else
       render json: {errors: event.errors.full_messages}, status: :unprocessable_entity
     end
